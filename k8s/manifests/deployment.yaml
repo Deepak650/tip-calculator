@@ -1,0 +1,28 @@
+# This is a sample deployment manifest file for a simple web application.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tip-calculator
+  labels:
+    app: tip-calculator
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tip-calculator
+  template:
+    metadata:
+      labels:
+        app: tip-calculator
+    spec:
+        containers:
+          - name: tip-calculator
+            image: qacontainer.azurecr.io/my-app:latest  # Replace with your ACR name and image tag
+            ports:
+            - containerPort: 80  # Adjust based on your application
+            env:
+            - name: Tip-Calculator-resources  # Example environment variable
+              value: "value"
+            imagePullSecrets:
+          - name: acr-auth  # Ensure you have this secret for ACR authentication
+    
