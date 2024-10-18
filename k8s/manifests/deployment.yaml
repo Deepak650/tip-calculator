@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: tip-calculator
-          image: tipcontainer.azurecr.io/tipcalculator:latest  # Replace with the actual image
+          image: tipcontainer.azurecr.io/deepaktipcalculator:latest  # Replace with the actual image
           ports:
             - containerPort: 80
           resources:
